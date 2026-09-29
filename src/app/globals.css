@@ -1,0 +1,250 @@
+:root {
+  --ink: #1a120c;
+  --paper: #f6edd6;
+  --cream: #fff8e8;
+  --magenta: #ff2d6a;
+  --lime: #dff25a;
+  --navy: #1b2744;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, #24345c 0, transparent 28rem),
+    var(--navy);
+  color: var(--ink);
+  font-family: var(--font-text), Georgia, serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.page {
+  width: min(1100px, calc(100% - 1.5rem));
+  margin: 0 auto;
+  padding: 1.5rem 0 3rem;
+}
+
+.mast {
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+
+.eyebrow {
+  margin: 0;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  font-size: 0.78rem;
+}
+
+.wordmark {
+  margin: 0.2rem 0;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 0.85;
+}
+
+.lede,
+.hint,
+.message,
+.banner,
+.saved p,
+.empty {
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.lede {
+  max-width: 38rem;
+  margin: 0.4rem 0 0;
+}
+
+.banner,
+.message {
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  padding: 0.75rem 0.9rem;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.desk {
+  display: grid;
+  grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.controls,
+.stage,
+.saved {
+  background: var(--cream);
+  border: 3px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.controls {
+  padding: 1rem;
+}
+
+.upload {
+  display: grid;
+  gap: 0.45rem;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.save,
+.upload input {
+  width: 100%;
+}
+
+.save {
+  appearance: none;
+  margin-top: 0.8rem;
+  border: 3px solid var(--ink);
+  background: var(--ink);
+  color: var(--lime);
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.7rem 0.8rem;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--magenta);
+}
+
+.save:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.stage {
+  min-height: 18rem;
+  padding: 0.6rem;
+}
+
+.frame {
+  position: relative;
+}
+
+.frame img,
+.saved img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.grid {
+  position: absolute;
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  grid-template-rows: repeat(10, minmax(0, 1fr));
+  gap: 1px;
+}
+
+.mover {
+  position: absolute;
+  left: 0;
+  right: 1.4rem;
+  top: -1.7rem;
+  height: 1.5rem;
+  border: 2px solid var(--ink);
+  background: var(--ink);
+  color: var(--lime);
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: grab;
+  touch-action: none;
+}
+
+.resizer {
+  position: absolute;
+  right: -0.45rem;
+  bottom: -0.45rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 2px solid var(--ink);
+  background: var(--magenta);
+  cursor: nwse-resize;
+  touch-action: none;
+  padding: 0;
+}
+
+.cell {
+  appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  background: rgba(255, 248, 232, 0.78);
+  color: var(--ink);
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.55rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.cell.selected {
+  background: var(--lime);
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+
+.empty {
+  margin: 2rem 1rem;
+}
+
+.saved {
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.saved h2 {
+  margin: 0 0 0.7rem;
+  font-family: var(--font-display), sans-serif;
+  text-transform: uppercase;
+}
+
+.saved ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+}
+
+.saved li {
+  border: 2px solid var(--ink);
+}
+
+.saved span {
+  display: block;
+  padding: 0.4rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 860px) {
+  .desk {
+    grid-template-columns: 1fr;
+  }
+}
